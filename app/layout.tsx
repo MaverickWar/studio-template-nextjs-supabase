@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
-import { fontsHref, projectName, tokenCss } from "@/lib/design-tokens";
+import { fontsHref, tokenCss } from "@/lib/design-tokens";
+import { appShell } from "@/lib/app-shell";
+import { AppShell } from "@/components/app-shell";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -9,8 +11,8 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),
-  title: projectName,
-  description: projectName,
+  title: appShell.name,
+  description: appShell.tagline || appShell.name,
 };
 
 export default function RootLayout({
@@ -32,7 +34,8 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          {children}
+          {/* The menu, header and footer come from design/app-shell.json */}
+          <AppShell>{children}</AppShell>
         </ThemeProvider>
       </body>
     </html>
