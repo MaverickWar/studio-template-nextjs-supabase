@@ -1,0 +1,10 @@
+{
+  "name": "New project",
+  "tagline": "",
+  "nav": "top",
+  "pages": [
+    { "name": "Home", "route": "/", "menu": true, "purpose": "The first thing people see" }
+  ],
+  "footer": "",
+  "signIn": true
+}

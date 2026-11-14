@@ -8,6 +8,12 @@ It's the official Next.js [with-supabase example](https://github.com/vercel/next
 - `lib/design-tokens.ts` turns those tokens into the CSS variables the components already use, and loads the two fonts.
 - Change the look by editing `design/tokens.json`, never by hard-coding colours.
 
+**The menu, header and footer come from `design/app-shell.json`.** Studio writes it from the project's app map: the app's name, every page (name, web address, whether it's in the menu, what it's for), menu position (`top` or `side`) and the footer line.
+
+- `components/app-shell.tsx` and `components/nav-links.tsx` are the frame every page sits in, with a phone menu.
+- A page in `app-shell.json` that hasn't been built yet still opens, showing "Coming next" (`app/[page]/page.tsx`). Building it means adding `app/<page>/page.tsx`, which takes over.
+- Add, rename or reorder pages in `design/app-shell.json`, not in the components.
+
 ## Running it
 
 ```
